@@ -25,7 +25,7 @@ public class Task extends TimerTask {
 
         try {
             Thread.sleep(3000);
-            driver.findElement(By.xpath("/html/body/div/div[1]/div[3]/div[3]/div[2]/div[2]/button")).click();
+            driver.findElement(By.cssSelector(".styles_btn--secondary__Warw0 > .relative")).click();
         } catch (Exception e) {
             System.out.println("You already clicked on the button or failed to do it\n" +
                     "please check it out or contact with this Email 'omidnet42@yahoo.com'");
