@@ -4,24 +4,14 @@ import java.io.File;
 import java.util.Date;
 import java.util.Timer;
 
-@SuppressWarnings("deprecation")
 public class Manage {
+    String name = findUsername();
     Timer timer = new Timer();
     Task task = new Task();
-    Date date = new Date();
-
-    int hour = 8;
-    int minute = 14;
-    int second = 0;
-    long period = 24 * 60 * 60 * 1000;
 
     public void run() {
-        date.setHours(hour);
-        date.setMinutes(minute);
-        date.setSeconds(second);
-        System.out.println("waiting to hour be : " + hour + " : " + minute + " : " + second);
-        timer.scheduleAtFixedRate(task, date, period);
-
+        long period = 24 * 60 * 60 * 1000;
+        timer.scheduleAtFixedRate(task, new Date(), period);
     }
 
     public String osName() {
@@ -29,13 +19,13 @@ public class Manage {
     }
 
     public boolean exist() {
-        String path = "/home/h0p3/Downloads/chromedriver-linux64/chromedriver";
+        String path = "/home/"+name+"/Downloads/chromedriver-linux64/chromedriver";
         File file = new File(path);
-        if (file.exists())
-            return true;
-        else
-            return false;
+        return file.exists();
     }
 
+    public String findUsername(){
+        return System.getProperty("user.name");
+    }
 
 }
