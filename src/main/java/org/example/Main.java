@@ -10,7 +10,7 @@ public class Main {
                 System.out.println("Starting application ... ");
                 manage.run();
             } else {
-                System.out.println("No such a file or diredtory\n");
+                System.out.println("No such a file or directory\n");
                 String name = manage.findUsername();
                 System.out.println("You should download webdriver and put it on\n /home/"+name+"/Downloads/chromedriver-linux64/chromedriver\n" +
                         "And then try again !! ");

@@ -23,7 +23,7 @@ public class Task extends TimerTask {
         try {
             Thread.sleep(2000);
             JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+            js.executeScript("window.scrollTo(0, window.scrollY + window.innerHeight / 2)");
             Thread.sleep(2000);
             driver.findElement(By.cssSelector(".styles_btn--secondary__Warw0 > .relative")).click();
             System.out.println("Clicked successfully");
