@@ -7,7 +7,8 @@ import java.util.Timer;
 public class Manage {
     String name = findUsername();
     Timer timer = new Timer();
-    Task task = new Task();
+//    Task task = new Task();
+    TaskLogin task = new TaskLogin();
 
     public void run() {
         long period = 24 * 60 * 60 * 1000;
