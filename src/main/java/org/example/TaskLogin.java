@@ -14,6 +14,15 @@ public class TaskLogin extends TimerTask {
 
     @Override
     public void run() {
+        String phoneIrancell = "09351234567";
+        String phoneHamrahAval = "09121234567";
+        String passwordIrancell = "12345678";
+        String passwordHamrahAval = "87654321";
+        click(phoneIrancell,passwordIrancell);
+        click(phoneHamrahAval,passwordHamrahAval);
+    }
+
+    public void click(String phone , String password){
         Manage manage = new Manage();
         System.setProperty("webdriver.chrome.driver", "/home/"+manage.findUsername()+"/Downloads/chromedriver-linux64/chromedriver");
         ChromeOptions options = new ChromeOptions();
@@ -22,9 +31,6 @@ public class TaskLogin extends TimerTask {
 
         String url = "https://www.digikala.com/users/login/?backUrl=/";
         String urlMission = "https://www.digikala.com/digiclub/missions/";
-        String phone = "09121234567";
-        String password = "12345678";
-
         driver.get(url);
         try {
             Thread.sleep(2000);
@@ -42,15 +48,15 @@ public class TaskLogin extends TimerTask {
             Thread.sleep(2000);
             driver.findElement(By.cssSelector(".styles_btn--secondary__Warw0 > .relative")).click();
             Thread.sleep(2000);
-            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/header/div[2]/div/div/div[2]/div[1]/div")).click();
-            Thread.sleep(2000);
-            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/header/div[2]/div/div/div[2]/div[1]/div[2]/ul/li[6]/span/div[2]/span")).click();
             System.out.println("Clicked successfully");
             Thread.sleep(2000);
             driver.quit();
         } catch (Exception e) {
             System.out.println("You already clicked on the button or failed to do it\n" +
                     "please check it out or contact with this Email 'omidnet42@yahoo.com'");
+        } finally {
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/header/div[2]/div/div/div[2]/div[1]/div")).click();
+            driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[1]/header/div[2]/div/div/div[2]/div[1]/div[2]/ul/li[6]/span/div[2]/span")).click();
             driver.quit();
         }
     }
