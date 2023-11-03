@@ -1,22 +1,11 @@
 package org.example;
 
+import java.io.IOException;
+
 public class Main {
-
-    public static void main(String[] args) {
-
-        Manage manage = new Manage();
-        if (manage.osName().equals("Linux")) {
-            if (manage.exist()) {
-                System.out.println("Starting application ... ");
-                manage.run();
-            } else {
-                System.out.println("No such a file or directory\n");
-                String name = manage.findUsername();
-                System.out.println("You should download webdriver and put it on\n /home/"+name+"/Downloads/chromedriver-linux64/chromedriver\n" +
-                        "And then try again !! ");
-            }
-        } else
-            System.out.println("Unfortunately this program only support on linux yet" +
-                    "\nPlease try again later");
+    public static void main(String[] args) throws IOException, InterruptedException {
+        Application app = new Application();
+        app.run();
     }
+
 }
