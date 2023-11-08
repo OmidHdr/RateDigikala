@@ -119,7 +119,16 @@ public class Manage {
     //section unzip linux
     public void unzipLinux() throws IOException {
 
-        String zipFilePath = "/home/" + findUsername() + "/Downloads/chromedriver-linux64.zip";
+        String zipFilePath = "C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64.zip";
+        String extractPath = "C:/Users/" + findUsername() + "/Downloads";
+        UnzipUtility utility = new UnzipUtility();
+        utility.unzip(zipFilePath, extractPath);
+
+    }
+     //section unzip Windows
+    public void unzipWindows() throws IOException {
+
+        String zipFilePath = "/home/" + findUsername() + "/Downloads/chrome-win64.zip";
         String extractPath = "/home/" + findUsername() + "/Downloads";
         UnzipUtility utility = new UnzipUtility();
         utility.unzip(zipFilePath, extractPath);
