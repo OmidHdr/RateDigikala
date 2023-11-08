@@ -31,9 +31,16 @@ public class Task extends TimerTask {
     public void appController(String phone, String password) throws InterruptedException {
 
         Manage manage = new Manage();
-        System.setProperty("webdriver.chrome.driver", "/home/"+ manage.findUsername()+"/Downloads/chromedriver-linux64/chromedriver");
+        String os = System.getProperty("os.name");
+        if (os.toLowerCase().contains("linux"))
+            System.setProperty("webdriver.chrome.driver", "/home/"+ manage.findUsername()+"/Downloads/chromedriver-linux64/chromedriver");
+        else
+           System.setProperty("webdriver.chrome.driver", "C:/Users/"+ manage.findUsername()+"/Desktop/dijgikala/out/artifacts/digikala_jar/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-data-dir=/home/"+ manage.findUsername()+"/.config/chromium");
+        if (os.toLowerCase().contains("linux"))
+            options.addArguments("--user-data-dir=/home/"+ manage.findUsername()+"/.config/chromium");
+        else
+            options.addArguments("--user-data-dir=C:/Users/"+ manage.findUsername()+"/AppData/Local/Google/Chrome/User Data/Default/Cache");
         WebDriver driver = new ChromeDriver(options);
 
         String url = "https://www.digikala.com/users/login/?backUrl=/";
