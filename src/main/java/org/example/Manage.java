@@ -31,6 +31,13 @@ public class Manage {
         return file.exists();
     }
 
+    //section check Driver windows
+    public boolean existDriverWindows(){
+        String path = "C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64/chromedriver";
+        File file = new File(path);
+        return file.exists();
+    }
+
     //section find Username
     public String findUsername() {
         return System.getProperty("user.name");
