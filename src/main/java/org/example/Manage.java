@@ -80,6 +80,42 @@ public class Manage {
         return true;
     }
 
+    //section Download Windows
+    public boolean downloadDriverWindows(String version) throws MalformedURLException {
+
+        String[] parts = version.split("(\\d.*)\\.");
+        String regex = "(\\d.*)\\.";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(version);
+
+        String matchedText = null;
+        if (matcher.find()) {
+            matchedText = matcher.group(1);
+        } else {
+            System.out.println("تطابقی یافت نشد.");
+            return false;
+        }
+
+        String linkChromeDriver = "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/" + matchedText + ".0" + "/win64/chrome-win64.zip";
+
+        String savePath = "C:/Users/" + findUsername() + "/Downloads/chrome-win64.zip";
+        URL url = new URL(linkChromeDriver);
+
+        try (InputStream in = url.openStream(); FileOutputStream out = new FileOutputStream(savePath)) {
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = in.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesRead);
+            }
+            System.out.println("فایل با موفقیت دانلود شد.");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
     //section unzip linux
     public void unzipLinux() throws IOException {
 
