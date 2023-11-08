@@ -45,7 +45,25 @@ public class Application {
 
             }
         } else if (os.toLowerCase().contains("windows")) {
-            System.out.println("add windows code here"); //todo
+           if (manage.existDriverWindows()) {
+                System.out.println("Starting application ... ");
+                manage.run();
+            } else {
+                System.out.println("No such a file or directory");
+
+                System.out.println("Start Downloading chromeDriver for your version " +
+                        "Please Do not stop application");
+
+                manage.downloadDriverWindows(version);
+
+                System.out.println("Download completed " +
+                        "Making directory");
+                manage.mkdirWindows();
+                System.out.println("Start unzipping file");
+                manage.unzipWindows();
+                System.out.println("Start Application for click");
+                manage.run();
+           }
         } else
             System.out.println("Unfortunately this program only support on linux and windows yet" +
                     "\nPlease try again later");
