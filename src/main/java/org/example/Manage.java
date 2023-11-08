@@ -118,9 +118,10 @@ public class Manage {
 
     //section unzip linux
     public void unzipLinux() throws IOException {
+        
+        String zipFilePath = "/home/" + findUsername() + "/Downloads/chrome-win64.zip";
+        String extractPath = "/home/" + findUsername() + "/Downloads";
 
-        String zipFilePath = "C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64.zip";
-        String extractPath = "C:/Users/" + findUsername() + "/Downloads";
         UnzipUtility utility = new UnzipUtility();
         utility.unzip(zipFilePath, extractPath);
 
@@ -128,8 +129,8 @@ public class Manage {
      //section unzip Windows
     public void unzipWindows() throws IOException {
 
-        String zipFilePath = "/home/" + findUsername() + "/Downloads/chrome-win64.zip";
-        String extractPath = "/home/" + findUsername() + "/Downloads";
+        String zipFilePath = "C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64.zip";
+        String extractPath = "C:/Users/" + findUsername() + "/Downloads";
         UnzipUtility utility = new UnzipUtility();
         utility.unzip(zipFilePath, extractPath);
 
@@ -138,6 +139,23 @@ public class Manage {
     //section make directory
     public void mkdir() {
         String directoryPath = "/home/" + findUsername() + "/Downloads/chromedriver-linux64";
+
+        File directory = new File(directoryPath);
+
+        if (!directory.exists()) {
+            if (directory.mkdirs()) {
+                System.out.println("پوشه با موفقیت ایجاد شد.");
+            } else {
+                System.out.println("خطا در ایجاد پوشه.");
+            }
+        } else {
+            System.out.println("پوشه از قبل وجود دارد.");
+        }
+    }
+
+    //section make directory windows
+    public void mkdirWindows() {
+        String directoryPath ="C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64";
 
         File directory = new File(directoryPath);
 
