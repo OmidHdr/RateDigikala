@@ -33,7 +33,7 @@ public class Manage {
 
     //section check Driver windows
     public boolean existDriverWindows(){
-        String path = "C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64/chromedriver";
+        String path = "C:/Users/" + findUsername() + "/Downloads/win64/chromedriver";
         File file = new File(path);
         return file.exists();
     }
@@ -130,7 +130,7 @@ public class Manage {
     public void unzipWindows() throws IOException {
 
         String zipFilePath = "C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64.zip";
-        String extractPath = "C:/Users/" + findUsername() + "/Downloads";
+        String extractPath = "C:/Users/" + findUsername() + "/Downloads/win64";
         UnzipUtility utility = new UnzipUtility();
         utility.unzip(zipFilePath, extractPath);
 
@@ -155,7 +155,7 @@ public class Manage {
 
     //section make directory windows
     public void mkdirWindows() {
-        String directoryPath ="C:/Users/" + findUsername() + "/Downloads/chromedriver-linux64";
+        String directoryPath ="C:/Users/" + findUsername() + "/Downloads/win64";
 
         File directory = new File(directoryPath);
 
